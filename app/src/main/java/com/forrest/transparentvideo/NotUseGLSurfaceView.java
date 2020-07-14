@@ -62,7 +62,7 @@ class NotUseGLSurfaceView extends BaseGLSurfaceView {
         public void onSurfaceCreated(GL10 gl, EGLConfig config) {
             // 创建一个矩形绘制对象，使用 OES纹理 带矩阵运算的shader
             mRect = new Rectangle();
-            mRect.init(Rectangle.ShaderType.TEXTURE_OES_Matrix_TRANS);
+            mRect.init(Rectangle.ShaderType.TEXTURE_OES_Simple_TRANS);
             // 生成oes TextureID和 SurfaceTexture
             mTextureID = GlUtil.generateTextureIdOES();
             mSurfaceTexture = new SurfaceTexture(mTextureID);

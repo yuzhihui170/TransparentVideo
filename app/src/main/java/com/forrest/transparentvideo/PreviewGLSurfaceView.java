@@ -87,7 +87,7 @@ public class PreviewGLSurfaceView extends BaseGLSurfaceView implements SurfaceHo
             surfaceTexture.setOnFrameAvailableListener(this);
 
             rectVideo = new Rectangle();
-            rectVideo.init(Rectangle.ShaderType.TEXTURE_OES_Matrix_TRANS);
+            rectVideo.init(Rectangle.ShaderType.TEXTURE_OES_Simple_TRANS);
             texIdForVideo = GlUtil.generateTextureIdOES();
             surfaceTextureForVideo = new SurfaceTexture(texIdForVideo);
             surfaceTextureForVideo.setOnFrameAvailableListener(this);
@@ -124,7 +124,7 @@ public class PreviewGLSurfaceView extends BaseGLSurfaceView implements SurfaceHo
                     // 这种情况下，我们可以简单的将源颜色的alpha值理解为“不透明度”。这也是混合时最常用的方式。
                     GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE_MINUS_SRC_ALPHA);
                     rectCamera.drawSelf(texId, currMatrix, GlUtil.IDENTITY_MATRIX);
-                    rectVideo.drawSelf(texIdForVideo, GlUtil.IDENTITY_MATRIX, GlUtil.IDENTITY_MATRIX);
+                    rectVideo.drawSelf(texIdForVideo);
                     GLES20.glDisable(GLES20.GL_BLEND);
                 }
             }
